@@ -45,6 +45,21 @@ docker run -d --name kibana --net somenetwork -p 5601:5601 kibana:7.1.1
 docker ps
 ```
 
+汉化Kibana
+
+```
+# 进入容器
+docker exec -it kibana /bin/sh
+
+# 修改配置文件
+vi /opt/kibana/config/kibana.yml
+最后一行加
+i18n.locale: zh-CN
+
+# 重启镜像
+docker restart kibana
+```
+
 3.Docker 安装 Logstash
 
 ```
