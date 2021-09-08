@@ -74,6 +74,40 @@ docker run -it -d -p 5044:5044 --name logstash --net somenetwork logstash:7.1.1
 docker ps
 ```
 
+配置logstash
+
+```
+docker exec -it logstash /bin/bash
+vi /usr/share/logstash/pipeline/logstash.conf
+```
+
+logstash.conf
+
+```
+input {
+  tcp {
+    port => 5044
+    codec => json_lines
+  }
+}
+
+output {
+  stdout {
+    codec => rubydebug
+  }
+  elasticsearch {
+    hosts=>["http://elasticsearch:9200"]
+    index => "springboot-elk"
+  }
+}
+```
+
+重启logstash
+
+```
+docker restart logstash
+```
+
 4.Docker 安装 Filebeat
 
 ```
