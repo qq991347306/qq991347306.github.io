@@ -1,4 +1,6 @@
 ---
+
+
 layout: post
 title: Docker安装部署ELK教程
 date: 2020-05-25
@@ -7,6 +9,16 @@ category: JAVA
 ---
 
 ## Docker安装部署ELK教程
+
+[elastic官网](https://www.elastic.co/cn/) 
+
+```
+# elastic官方镜像 https://www.elastic.co/cn/downloads/
+docker pull docker.elastic.co/elasticsearch/elasticsearch:7.10.1
+docker pull docker.elastic.co/kibana/kibana:7.10.1
+docker pull docker.elastic.co/logstash/logstash:7.10.1
+docker pull docker.elastic.co/beats/filebeat:7.10.1
+```
 
 1.Docker 安装 Elasticsearch
 
